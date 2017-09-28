@@ -6,15 +6,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
     tools:context="com.ifreeplay.airtravelers.activity.MainActivity">
-
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/tv_authLogin"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="玩家登录"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginTop="15dp"
+        android:background="#ffa631"
+        />
+    <TextView
+        android:id="@+id/tv_confirmOrder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="确认订单"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginTop="15dp"
+        android:background="#a3d900"
+    />
 
 </LinearLayout>

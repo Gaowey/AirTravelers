@@ -11,15 +11,16 @@ import okhttp3.Call;
  */
 
 public class HttpUtils {
+
     public enum HttpMethod {
         GET,
         POST,
         PUT
     }
 
-    public void getDateFromServicer(String url, Map<String,String> params, HttpMethod method, final HttpCallBackListener listener){
+    public static void getDateFromServicer(String url, Map<String,String> params, HttpMethod method, final HttpCallBackListener listener){
         if (method==HttpMethod.GET){
-            OkHttpUtils.get().url(url).params(params).build().execute(new StringCallback(){
+            OkHttpUtils.get().url(url).addHeader("Content-Type","application/json").params(params).build().execute(new StringCallback(){
                 @Override
                 public void onError(Call call, Exception e, int id) {
                     listener.onError(e);
@@ -32,7 +33,7 @@ public class HttpUtils {
             });
 
         }else if (method==HttpMethod.POST){
-            OkHttpUtils.post().url(url).params(params).build().execute(new StringCallback(){
+            OkHttpUtils.post().url(url).addHeader("Content-Type","application/json").params(params).build().execute(new StringCallback(){
                 @Override
                 public void onError(Call call, Exception e, int id) {
                     listener.onError(e);
@@ -46,8 +47,8 @@ public class HttpUtils {
         }
     }
 
-    public void postString(String url, String json, final HttpCallBackListener listener){
-        OkHttpUtils.postString().url(url).content(json).build().execute(new StringCallback() {
+    public static void postString(String url, String json, final HttpCallBackListener listener){
+        OkHttpUtils.postString().url(url).addHeader("Content-Type","application/json").content(json).build().execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int id) {
                 listener.onError(e);
