@@ -1,7 +1,9 @@
-package com.ifreeplay.airtravelers;
+package com.ifreeplay.airtravelers.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.ifreeplay.airtravelers.R;
 
 public class MainActivity extends AppCompatActivity {
 
