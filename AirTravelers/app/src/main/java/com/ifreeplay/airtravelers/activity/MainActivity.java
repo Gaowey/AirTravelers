@@ -1,5 +1,6 @@
 package com.ifreeplay.airtravelers.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,7 @@ import com.google.gson.Gson;
 import com.ifreeplay.airtravelers.R;
 import com.ifreeplay.airtravelers.bean.Credential;
 import com.ifreeplay.airtravelers.bean.Order;
+import com.ifreeplay.airtravelers.bean.ResponseOrder;
 import com.ifreeplay.airtravelers.interfaces.HttpCallBackListener;
 import com.ifreeplay.airtravelers.utils.AndroidUtils;
 import com.ifreeplay.airtravelers.utils.HttpUtils;
@@ -73,17 +75,24 @@ public class MainActivity extends AppCompatActivity{
                 order.setPrice(30);
                 order.setTotalPrice(30);
                 order.setProductId(5);
+                order.setProductName("房卡0");
                 order.setStatus(Order.Status.OPEN);
                 order.setSpbillCreateIp(AndroidUtils.getIPAddress(MainActivity.this));
                 HttpUtils.postString(UrlConstants.CONFIRMORDER, new Gson().toJson(order), new HttpCallBackListener() {
                     @Override
                     public void onFinish(String response) {
-                        String str = response;
+                        Gson gson = new Gson();
+                        ResponseOrder responseOrder = gson.fromJson(response, ResponseOrder.class);
+                        Intent intent = new Intent(MainActivity.this,PaymentActivity.class);
+                        intent.putExtra("orderNumber",responseOrder.getData().getOrderNumber());
+                        intent.putExtra("totalPrice",responseOrder.getData().getTotalPrice());
+                        intent.putExtra("currencyTypes",responseOrder.getData().getCurrencyTypes());
+                        startActivity(intent);
                     }
 
                     @Override
                     public void onError(Exception e) {
-                        AndroidUtils.shortToast(MainActivity.this,e.toString());
+                        AndroidUtils.shortToast(MainActivity.this,"订单创建失败！");
                     }
                 });
             }
