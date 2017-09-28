@@ -23,6 +23,13 @@ public class WechatPayUtils {
                 Gson gson = new Gson();
                 ResponseOrderParameters responseOrderParameters = gson.fromJson(response, ResponseOrderParameters.class);
                 //TODO 获取参数调起支付
+                String appid = responseOrderParameters.getData().getAppid();
+                String mch_id = responseOrderParameters.getData().getMch_id();
+                String nonce_str = responseOrderParameters.getData().getNonce_str();
+                String prepay_id = responseOrderParameters.getData().getPrepay_id();
+                String sign = responseOrderParameters.getData().getSign();
+
+
 
             }
 
