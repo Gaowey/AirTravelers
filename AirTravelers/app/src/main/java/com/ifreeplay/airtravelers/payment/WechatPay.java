@@ -22,7 +22,7 @@ import java.util.Map;
 
 public class WechatPay {
     //调起统一下单接口
-    public static void getOrderParameters(String orderNumber, final Context context){
+    public static void pay(String orderNumber, final Context context){
         Map<String, String> map = new HashMap<>();
         map.put("orderNumber",orderNumber);
         HttpUtils.getDateFromServicer(UrlConstants.GETORDERPARAMETERS, map, HttpUtils.HttpMethod.POST, new HttpCallBackListener() {

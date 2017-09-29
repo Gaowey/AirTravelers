@@ -24,7 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.PaymentActivity" />
+        <activity android:name=".activity.PaymentTestActivity" />
         <activity android:name=".wxapi.WXPayEntryActivity"
             android:launchMode="singleTop"
             android:exported="true"

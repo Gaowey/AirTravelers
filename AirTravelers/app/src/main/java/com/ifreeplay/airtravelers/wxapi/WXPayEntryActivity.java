@@ -3,8 +3,6 @@ package com.ifreeplay.airtravelers.wxapi;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
-import com.ifreeplay.airtravelers.R;
 import com.ifreeplay.airtravelers.utils.AndroidUtils;
 import com.ifreeplay.airtravelers.utils.Constants;
 import com.tencent.mm.opensdk.constants.ConstantsAPI;
@@ -21,7 +19,6 @@ public class WXPayEntryActivity extends AppCompatActivity implements IWXAPIEvent
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_wxpay_entry);
         api = WXAPIFactory.createWXAPI(this, Constants.WECHATAPPID);
         api.handleIntent(getIntent(),this);
     }

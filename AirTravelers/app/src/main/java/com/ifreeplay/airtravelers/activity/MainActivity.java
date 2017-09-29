@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity{
             public void onClick(View v) {
                 Order order = new Order();
                 order.setGameId(2);
-                order.setCurrencyTypes(Order.CurrencyTypes.CNY);
+                order.setCurrencyTypes(Order.CurrencyTypes.USD);
                 order.setPlayerId(1);
                 order.setDealPrice(3);
                 order.setPrice(3);
@@ -83,10 +83,11 @@ public class MainActivity extends AppCompatActivity{
                     public void onFinish(String response) {
                         Gson gson = new Gson();
                         ResponseOrder responseOrder = gson.fromJson(response, ResponseOrder.class);
-                        Intent intent = new Intent(MainActivity.this,PaymentActivity.class);
+                        Intent intent = new Intent(MainActivity.this,PaymentTestActivity.class);
                         intent.putExtra("orderNumber",responseOrder.getData().getOrderNumber());
                         intent.putExtra("totalPrice",responseOrder.getData().getTotalPrice());
                         intent.putExtra("currencyTypes",responseOrder.getData().getCurrencyTypes());
+                        intent.putExtra("productName",responseOrder.getData().getProductName());
                         startActivity(intent);
                     }
 

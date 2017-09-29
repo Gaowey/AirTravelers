@@ -4,6 +4,7 @@ import java.security.MessageDigest;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.Set;
+
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
@@ -16,7 +17,7 @@ public class WechatPayUtils {
      * 生成签名
      *
      * @param data 待签名数据
-     * @param key API密钥
+     * @param key  API密钥
      * @return 签名
      */
     public static String generateSignature(final Map<String, String> data, String key) throws Exception {
@@ -26,8 +27,8 @@ public class WechatPayUtils {
     /**
      * 生成签名. 注意，若含有sign_type字段，必须和signType参数保持一致。
      *
-     * @param data 待签名数据
-     * @param key API密钥
+     * @param data     待签名数据
+     * @param key      API密钥
      * @param signType 签名方式
      * @return 签名
      */
@@ -46,11 +47,9 @@ public class WechatPayUtils {
         sb.append("key=").append(key);
         if (Constants.SignType.MD5.equals(signType)) {
             return MD5(sb.toString()).toUpperCase();
-        }
-        else if (Constants.SignType.HMACSHA256.equals(signType)) {
+        } else if (Constants.SignType.HMACSHA256.equals(signType)) {
             return HMACSHA256(sb.toString(), key);
-        }
-        else {
+        } else {
             throw new Exception(String.format("Invalid sign_type: %s", signType));
         }
     }
@@ -73,8 +72,9 @@ public class WechatPayUtils {
 
     /**
      * 生成 HMACSHA256
+     *
      * @param data 待处理数据
-     * @param key 密钥
+     * @param key  密钥
      * @return 加密结果
      * @throws Exception
      */
