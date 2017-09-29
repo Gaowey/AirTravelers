@@ -43,8 +43,10 @@ public class WXPayEntryActivity extends AppCompatActivity implements IWXAPIEvent
         if (baseResp.getType() == ConstantsAPI.COMMAND_PAY_BY_WX) {
             if (baseResp.errCode==0){
                 AndroidUtils.shortToast(WXPayEntryActivity.this,"支付成功");
-            }else {
+            }else if(baseResp.errCode==-1){
                 AndroidUtils.shortToast(WXPayEntryActivity.this,"支付失败，请重试！");
+            }else if (baseResp.errCode==-2){
+                AndroidUtils.shortToast(WXPayEntryActivity.this,"支付取消成功");
             }
             finish();
         }

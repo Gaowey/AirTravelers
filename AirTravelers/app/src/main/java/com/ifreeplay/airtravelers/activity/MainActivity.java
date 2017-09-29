@@ -71,9 +71,9 @@ public class MainActivity extends AppCompatActivity{
                 order.setGameId(2);
                 order.setCurrencyTypes(Order.CurrencyTypes.CNY);
                 order.setPlayerId(1);
-                order.setDealPrice(30);
-                order.setPrice(30);
-                order.setTotalPrice(30);
+                order.setDealPrice(3);
+                order.setPrice(3);
+                order.setTotalPrice(3);
                 order.setProductId(5);
                 order.setProductName("房卡0");
                 order.setStatus(Order.Status.OPEN);

@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.ifreeplay.airtravelers.R;
-import com.ifreeplay.airtravelers.utils.WechatPayUtils;
+import com.ifreeplay.airtravelers.payment.WechatPay;
 
 public class PaymentActivity extends AppCompatActivity {
 
@@ -47,7 +47,7 @@ public class PaymentActivity extends AppCompatActivity {
         mWechatPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                WechatPayUtils.getOrderParameters(String.valueOf(orderNumber));
+                WechatPay.getOrderParameters(String.valueOf(orderNumber),PaymentActivity.this);
             }
         });
 

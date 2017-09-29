@@ -3,6 +3,8 @@ package com.ifreeplay.airtravelers.utils;
 import android.app.Application;
 import android.content.Context;
 
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import com.zhy.http.okhttp.OkHttpUtils;
 
 import java.util.HashMap;
@@ -17,7 +19,7 @@ import okhttp3.OkHttpClient;
 
 public class AirTravelersApplication extends Application {
     public static Context appContext;
-    public static Map<String, String> remindMap = new HashMap<>();
+    public static IWXAPI msgApi;
 
     @Override
     public void onCreate() {

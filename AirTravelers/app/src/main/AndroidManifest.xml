@@ -25,7 +25,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.PaymentActivity" />
-        <activity android:name=".wxapi.WXPayEntryActivity"></activity>
+        <activity android:name=".wxapi.WXPayEntryActivity"
+            android:launchMode="singleTop"
+            android:exported="true"
+            >
+        </activity>
     </application>
 
 </manifest>
