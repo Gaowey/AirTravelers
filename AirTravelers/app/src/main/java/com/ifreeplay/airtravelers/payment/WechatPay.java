@@ -30,7 +30,6 @@ public class WechatPay {
             public void onFinish(String response) {
                 Gson gson = new Gson();
                 ResponseOrderParameters responseOrderParameters = gson.fromJson(response, ResponseOrderParameters.class);
-                //TODO 获取参数调起支付
                 String appid = responseOrderParameters.getData().getAppid();
                 String partnerid = responseOrderParameters.getData().getMch_id();
                 String noncestr = responseOrderParameters.getData().getNonce_str();

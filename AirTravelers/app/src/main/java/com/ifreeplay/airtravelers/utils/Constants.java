@@ -15,7 +15,8 @@ public class Constants {
     public static final String WECHATSECRET = "6404466b271ee9732f15da181ed15ad1";
     public static final String WECHATMCHKEY = "Beijyoukonghuyu20170829ifreeplay";
     public static final String FIELD_SIGN_TYPE = "sign_type";//微信签名类型
-    public static final int PAYPAL_REQUEST_CODE = 10101;//微信签名类型
+    public static final int PAYPAL_REQUEST_CODE = 10101;//paypal请求码
+    public static final int GOOGLE_REQUEST_CODE = 10001;//Google请求码
     public static final String PAYPAL_CLIENT_ID = "ATdJEC70AgF4ae_jIaK8WiVMzxBiarr-Whf1dJMAWbGm8IVQG57o28GA_5hLKvNFIH9vIoPqG13MLQ8T";
 
 }
