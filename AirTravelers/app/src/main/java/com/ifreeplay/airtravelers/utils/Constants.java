@@ -18,5 +18,6 @@ public class Constants {
     public static final int PAYPAL_REQUEST_CODE = 10101;//paypal请求码
     public static final int GOOGLE_REQUEST_CODE = 10001;//Google请求码
     public static final String PAYPAL_CLIENT_ID = "ATdJEC70AgF4ae_jIaK8WiVMzxBiarr-Whf1dJMAWbGm8IVQG57o28GA_5hLKvNFIH9vIoPqG13MLQ8T";
+    public static final String GOOGLE_PUBLIC_KEY = "ATdJEC70AgF4ae_jIaK8WiVMzxBiarr-Whf1dJMAWbGm8IVQG57o28GA_5hLKvNFIH9vIoPqG13MLQ8T";
 
 }

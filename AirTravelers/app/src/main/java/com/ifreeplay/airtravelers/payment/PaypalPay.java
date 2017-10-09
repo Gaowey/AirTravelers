@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.ifreeplay.airtravelers.interfaces.HttpCallBackListener;
-import com.ifreeplay.airtravelers.interfaces.PaypalPayCallBackListener;
+import com.ifreeplay.airtravelers.interfaces.PaymentCallBackListener;
 import com.ifreeplay.airtravelers.utils.AndroidUtils;
 import com.ifreeplay.airtravelers.utils.Constants;
 import com.ifreeplay.airtravelers.utils.HttpUtils;
@@ -29,7 +29,7 @@ import java.util.Map;
 public class PaypalPay {
 
     private static long mOrderNumber;
-    private static PaypalPayCallBackListener mCallbackListener;
+    private static PaymentCallBackListener mCallbackListener;
 
     public enum Environment {
         ENVIRONMENT_SANDBOX, // 沙箱
@@ -60,7 +60,7 @@ public class PaypalPay {
      * @param totalPrice
      * @param currencyTypes
      */
-    public static void pay(long orderNumber, int totalPrice, String currencyTypes, String productName, PaypalPayCallBackListener callBackListener) {
+    public static void pay(long orderNumber, int totalPrice, String currencyTypes, String productName, PaymentCallBackListener callBackListener) {
         mCallbackListener =callBackListener;
         mOrderNumber =orderNumber;
         if (currencyTypes.equals("CNY")){
@@ -137,7 +137,7 @@ public class PaypalPay {
     /**
      * 关闭服务
      */
-    public static void stopPaypalService() {
+    public static void unbindService() {
         mContext.stopService(new Intent(mContext, PayPalService.class));
     }
 

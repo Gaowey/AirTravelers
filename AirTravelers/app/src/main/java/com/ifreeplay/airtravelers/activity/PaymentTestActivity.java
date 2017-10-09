@@ -6,7 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import com.ifreeplay.airtravelers.R;
-import com.ifreeplay.airtravelers.interfaces.PaypalPayCallBackListener;
+import com.ifreeplay.airtravelers.interfaces.PaymentCallBackListener;
+import com.ifreeplay.airtravelers.payment.GooglePay;
 import com.ifreeplay.airtravelers.payment.PaypalPay;
 import com.ifreeplay.airtravelers.payment.WechatPay;
 import com.ifreeplay.airtravelers.utils.AndroidUtils;
@@ -32,6 +33,7 @@ public class PaymentTestActivity extends AppCompatActivity {
         initView();
         initData();
         PaypalPay.init(this, Constants.PAYPAL_CLIENT_ID,PaypalPay.Environment.ENVIRONMENT_SANDBOX);
+        GooglePay.init(this,Constants.GOOGLE_PUBLIC_KEY);
     }
 
     /**
@@ -65,7 +67,7 @@ public class PaymentTestActivity extends AppCompatActivity {
         mPaypalPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PaypalPay.pay(orderNumber, totalPrice, currencyTypes, productName, new PaypalPayCallBackListener() {
+                PaypalPay.pay(orderNumber, totalPrice, currencyTypes, productName, new PaymentCallBackListener() {
                     @Override
                     public void onFinish(String response) {
                         try {
@@ -93,7 +95,27 @@ public class PaymentTestActivity extends AppCompatActivity {
         mGooglePay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                GooglePay.pay("productId", orderNumber, new PaymentCallBackListener() {
+                    @Override
+                    public void onFinish(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            boolean data = (boolean) jsonObject.get("data");
+                            if (data){
+                                AndroidUtils.shortToast(PaymentTestActivity.this,"Payment successful!");
+                            }else {
+                                AndroidUtils.shortToast(PaymentTestActivity.this,"Payment failure!");
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
 
+                    @Override
+                    public void onError(Exception e) {
+                        AndroidUtils.shortToast(PaymentTestActivity.this,e.toString());
+                    }
+                });
             }
         });
     }
@@ -101,12 +123,13 @@ public class PaymentTestActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         PaypalPay.onActivityResult(requestCode,resultCode,data);
-
+        GooglePay.onActivityResult(requestCode,resultCode,data);
     }
 
     @Override
     protected void onDestroy() {
-        PaypalPay.stopPaypalService();
+        PaypalPay.unbindService();
+        GooglePay.unbindService();
         super.onDestroy();
     }
 }
