@@ -116,6 +116,7 @@ public class PaypalPay {
         Map<String, String> map = new HashMap<>();
         map.put("orderNumber",String.valueOf(mOrderNumber));
         map.put("paymentId",payment_id);
+        map.put("verifyEnvironment","");
         HttpUtils.getDateFromServicer(UrlConstants.CHECK_PAYPAL_RESULT, map, HttpUtils.HttpMethod.POST, new HttpCallBackListener() {
             @Override
             public void onFinish(String response) {

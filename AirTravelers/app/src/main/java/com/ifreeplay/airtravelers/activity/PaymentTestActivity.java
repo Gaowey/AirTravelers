@@ -73,6 +73,8 @@ public class PaymentTestActivity extends AppCompatActivity {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             boolean data = (boolean) jsonObject.get("data");
+                            int code = (int) jsonObject.get("code");
+                            String message = (String) jsonObject.get("message");
                             if (data){
                                 AndroidUtils.shortToast(PaymentTestActivity.this,"Payment successful!");
                             }else {
@@ -101,6 +103,7 @@ public class PaymentTestActivity extends AppCompatActivity {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             boolean data = (boolean) jsonObject.get("data");
+
                             if (data){
                                 AndroidUtils.shortToast(PaymentTestActivity.this,"Payment successful!");
                             }else {
