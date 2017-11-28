@@ -5,19 +5,19 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.1'
+        classpath 'com.android.tools.build:gradle:3.0.0'
         classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4+"
     }
 }
 
 allprojects {
-    apply plugin: "com.jfrog.artifactory"
+    //apply plugin: "com.jfrog.artifactory"
     repositories {
         jcenter()
     }
 }
 
-artifactory {
+/*artifactory {
     contextUrl = "${artifactory_contextUrl}"
     publish {
         repository {
@@ -37,7 +37,7 @@ artifactory {
 
         }
     }
-}
+}*/
 
 task clean(type: Delete) {
     delete rootProject.buildDir

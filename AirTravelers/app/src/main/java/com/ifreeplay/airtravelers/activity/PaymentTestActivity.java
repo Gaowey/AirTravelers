@@ -6,12 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import com.ifreeplay.airtravelers.R;
-import com.ifreeplay.airtravelers.interfaces.PaymentCallBackListener;
-import com.ifreeplay.airtravelers.payment.GooglePay;
-import com.ifreeplay.airtravelers.payment.PaypalPay;
-import com.ifreeplay.airtravelers.payment.WechatPay;
-import com.ifreeplay.airtravelers.utils.AndroidUtils;
-import com.ifreeplay.airtravelers.utils.Constants;
+import com.ifreeplay.ifreeplaysdk.interfaces.PaymentCallBackListener;
+import com.ifreeplay.ifreeplaysdk.interfaces.WechatPayCallBackListener;
+import com.ifreeplay.ifreeplaysdk.payment.GooglePay;
+import com.ifreeplay.ifreeplaysdk.payment.PaypalPay;
+import com.ifreeplay.ifreeplaysdk.payment.WechatPay;
+import com.ifreeplay.ifreeplaysdk.utils.payutils.AndroidUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,9 +21,8 @@ public class PaymentTestActivity extends AppCompatActivity {
     private TextView mWechatPay;
     private TextView mPaypalPay;
     private TextView mGooglePay;
-    private long orderNumber;
+    private int orderId;
     private int totalPrice;
-    private String currencyTypes;
     private String productName;
 
     @Override
@@ -32,8 +31,8 @@ public class PaymentTestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_payment);
         initView();
         initData();
-        PaypalPay.init(this, Constants.PAYPAL_CLIENT_ID,PaypalPay.Environment.ENVIRONMENT_SANDBOX);
-        GooglePay.init(this,Constants.GOOGLE_PUBLIC_KEY);
+        PaypalPay.init(this, "ATdJEC70AgF4ae_jIaK8WiVMzxBiarr-Whf1dJMAWbGm8IVQG57o28GA_5hLKvNFIH9vIoPqG13MLQ8T",PaypalPay.Environment.ENVIRONMENT_SANDBOX);
+        GooglePay.init(this,"ATdJEC70AgF4ae_jIaK8WiVMzxBiarr-Whf1dJMAWbGm8IVQG57o28GA_5hLKvNFIH9vIoPqG13MLQ8T");
     }
 
     /**
@@ -49,17 +48,26 @@ public class PaymentTestActivity extends AppCompatActivity {
      * 初始化数据
      */
     private void initData() {
-        //获取订单属性
-        orderNumber = getIntent().getLongExtra("orderNumber",0);
+        //获取订单详情
+        orderId = getIntent().getIntExtra("orderId",0);
         totalPrice = getIntent().getIntExtra("totalPrice",0);
-        currencyTypes = getIntent().getStringExtra("currencyTypes");
         productName = getIntent().getStringExtra("productName");
 
         //微信支付
         mWechatPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                WechatPay.pay(String.valueOf(orderNumber),PaymentTestActivity.this);
+                WechatPay.pay(orderId, PaymentTestActivity.this, new WechatPayCallBackListener() {
+                    @Override
+                    public void onFinish(String netWrongMsg) {
+                        AndroidUtils.shortToast(PaymentTestActivity.this,netWrongMsg);
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+                        e.printStackTrace();
+                    }
+                });
             }
         });
 
@@ -67,7 +75,7 @@ public class PaymentTestActivity extends AppCompatActivity {
         mPaypalPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PaypalPay.pay(orderNumber, totalPrice, currencyTypes, productName, new PaymentCallBackListener() {
+                PaypalPay.pay(orderId, totalPrice, PaypalPay.CurrencyTypes.USD, productName, new PaymentCallBackListener() {
                     @Override
                     public void onFinish(String response) {
                         try {
@@ -97,7 +105,7 @@ public class PaymentTestActivity extends AppCompatActivity {
         mGooglePay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GooglePay.pay("productId", orderNumber, new PaymentCallBackListener() {
+                GooglePay.pay("12121212", orderId, new PaymentCallBackListener() {
                     @Override
                     public void onFinish(String response) {
                         try {

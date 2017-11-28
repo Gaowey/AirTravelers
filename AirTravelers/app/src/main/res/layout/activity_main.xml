@@ -34,4 +34,53 @@
         android:background="#a3d900"
     />
 
+    <TextView
+        android:id="@+id/tv_testOrder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="测试"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginTop="15dp"
+        android:background="#a3d900"
+        />
+    <TextView
+        android:id="@+id/tv_wechatlogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="微信登录"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginTop="15dp"
+        android:background="#a3d900"
+        />
+    <TextView
+        android:id="@+id/tv_linelogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="line登录"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginTop="15dp"
+        android:background="#a3d900"
+    />
+    <TextView
+        android:id="@+id/tv_facebooklogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="facebook登录"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginTop="15dp"
+        android:background="#a3d900"
+        />
+
 </LinearLayout>

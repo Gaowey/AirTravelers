@@ -58,7 +58,7 @@ public class ResponseOrder {
          */
 
         private int id;
-        private long orderNumber;
+        private String orderNumber;
         private int gameId;
         private int productId;
         private String productName;
@@ -79,11 +79,11 @@ public class ResponseOrder {
             this.id = id;
         }
 
-        public long getOrderNumber() {
+        public String getOrderNumber() {
             return orderNumber;
         }
 
-        public void setOrderNumber(long orderNumber) {
+        public void setOrderNumber(String orderNumber) {
             this.orderNumber = orderNumber;
         }
 
