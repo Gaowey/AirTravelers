@@ -36,10 +36,12 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
             case BaseResp.ErrCode.ERR_AUTH_DENIED:
                 //用户拒绝授权
                 AndroidUtils.shortToast(WXEntryActivity.this, "拒绝授权微信登录");
+                finish();
                 break;
             case BaseResp.ErrCode.ERR_USER_CANCEL:
                 //用户取消
                 AndroidUtils.shortToast(WXEntryActivity.this, "取消授权微信登录");
+                finish();
                 break;
             case BaseResp.ErrCode.ERR_OK:
                 //用户换取access_token的code，仅在ErrCode为0时有效

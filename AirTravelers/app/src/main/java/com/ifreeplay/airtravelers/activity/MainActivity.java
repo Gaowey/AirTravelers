@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity{
      * 初始化布局
      */
     private void initView() {
-        mAuthLogin = (TextView) findViewById(R.id.tv_authLogin);
+        mAuthLogin = (TextView) findViewById(R.id.tv_product_list);
         mConfirmOrder = (TextView) findViewById(R.id.tv_confirmOrder);
         mWechatLogin = (TextView) findViewById(R.id.tv_wechatlogin);
         mLineLogin = (TextView) findViewById(R.id.tv_linelogin);
@@ -58,10 +58,11 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 loginManager.initWechatLogin();
-                loginManager.setWechatLoginParams(MainActivity.this, mWechatLogin, "wx5c8698af4ea9d013", "6404466b271ee9732f15da181ed15ad1", "com.ifreeplay.airtravelers", new LogInStateListener() {
+                loginManager.setWechatLoginParams(MainActivity.this,"wx5c8698af4ea9d013", "6404466b271ee9732f15da181ed15ad1", "com.ifreeplay.airtravelers", new LogInStateListener() {
                     @Override
                     public void OnLoginSuccess(ViewPlayer viewPlayer, String s) {
-                    AndroidUtils.shortToast(MainActivity.this,viewPlayer.getData().getName()+"---"+viewPlayer.getData().getHeadPortraitUrl());
+                        //viewPlayer中获取玩家信息
+                        AndroidUtils.shortToast(MainActivity.this,viewPlayer.getData().getName()+"---"+viewPlayer.getData().getHeadPortraitUrl());
                     }
 
                     @Override
