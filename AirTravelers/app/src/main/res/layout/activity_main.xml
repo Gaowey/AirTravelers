@@ -11,31 +11,6 @@
     tools:context="com.ifreeplay.airtravelers.activity.MainActivity">
 
     <TextView
-        android:id="@+id/tv_confirmOrder"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="确认订单"
-        android:gravity="center"
-        android:textSize="16sp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:layout_marginTop="15dp"
-        android:background="#a3d900"
-    />
-
-    <TextView
-        android:id="@+id/tv_testOrder"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="测试"
-        android:gravity="center"
-        android:textSize="16sp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:layout_marginTop="15dp"
-        android:background="#a3d900"
-        />
-    <TextView
         android:id="@+id/tv_wechatlogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -45,7 +20,7 @@
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:layout_marginTop="15dp"
-        android:background="#a3d900"
+        android:background="#00bc12"
         />
     <TextView
         android:id="@+id/tv_linelogin"
@@ -57,7 +32,7 @@
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:layout_marginTop="15dp"
-        android:background="#a3d900"
+        android:background="#ff7500"
     />
     <TextView
         android:id="@+id/tv_facebooklogin"
@@ -69,20 +44,20 @@
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:layout_marginTop="15dp"
-        android:background="#a3d900"
+        android:background="#4b5cc4"
         />
 
     <TextView
-        android:id="@+id/tv_product_list"
+        android:id="@+id/tv_confirmOrder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="商品列表"
+        android:text="确认订单"
         android:gravity="center"
         android:textSize="16sp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:layout_marginTop="15dp"
-        android:background="#ffa631"
+        android:layout_marginTop="100dp"
+        android:background="#e0eee8"
         />
 
 </LinearLayout>

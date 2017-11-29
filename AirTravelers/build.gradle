@@ -3,6 +3,8 @@
 buildscript {
     repositories {
         jcenter()
+        google()
+        mavenCentral()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.0'
@@ -14,6 +16,7 @@ allprojects {
     //apply plugin: "com.jfrog.artifactory"
     repositories {
         jcenter()
+
     }
 }
 

@@ -20,6 +20,7 @@ android {
 }
 repositories {
     flatDir { dirs 'libs' }
+    google()
 }
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -27,6 +28,9 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile(name: 'ifreeplaysdk', ext: 'aar')
+    compile(name: 'lineSdk', ext: 'aar')
+    //noinspection GradleCompatible
+    compile 'com.android.support:customtabs:25.4.0'
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.google.code.gson:gson:2.8.1'
     compile 'com.zhy:okhttputils:2.6.2'

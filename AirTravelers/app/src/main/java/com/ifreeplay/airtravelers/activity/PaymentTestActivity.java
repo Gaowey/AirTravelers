@@ -31,8 +31,9 @@ public class PaymentTestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_payment);
         initView();
         initData();
+        //初始化相关支付信息
         PaypalPay.init(this, "ATdJEC70AgF4ae_jIaK8WiVMzxBiarr-Whf1dJMAWbGm8IVQG57o28GA_5hLKvNFIH9vIoPqG13MLQ8T",PaypalPay.Environment.ENVIRONMENT_SANDBOX);
-        GooglePay.init(this,"ATdJEC70AgF4ae_jIaK8WiVMzxBiarr-Whf1dJMAWbGm8IVQG57o28GA_5hLKvNFIH9vIoPqG13MLQ8T");
+        GooglePay.init(this,"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqlg8aC8XnVfI+IePgNJ8moQHx2QG9j4I8DCg9e3xitmgMvTi1+HfEFioKyung9JiDy+SEOeObY6R/QD1o5varLVA5/FTC+JpOvlKdrD2syrHyatdL4jXiE2a4PzS+Yh1XqOdh/8U6yAzm1a36P6K6EqEYaL4SGCxJSX1OJUkhSCtHeGk888pASHChqh8jR7C2OEsO4T51HW6MSE67UYng1+NpnZBn8ueefo5uxEAIdGCOd6eoyxa7adem0W001UArC5BxJj7HNRU6bMTigfIeHaDXI2ceK51+/Gpo7y85LVDGODUHdBYnVX0nMRHYchIiodPGt5uTS6VKs889xDLkQIDAQAB");
     }
 
     /**
@@ -105,7 +106,9 @@ public class PaymentTestActivity extends AppCompatActivity {
         mGooglePay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GooglePay.pay("12121212", orderId, new PaymentCallBackListener() {
+                //Google应用内支付有自己的productId,不同于我们自己系统的商品id，若应用接入Google支付需去Google开发者平台创建商品
+                //然后获得productId,再与我们的管理系统相关联,最后在返回的order详情中会有Google的productId
+                GooglePay.pay("121212", orderId, new PaymentCallBackListener() {
                     @Override
                     public void onFinish(String response) {
                         try {

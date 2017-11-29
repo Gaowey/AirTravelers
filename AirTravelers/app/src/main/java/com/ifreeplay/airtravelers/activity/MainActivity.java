@@ -13,7 +13,6 @@ import com.ifreeplay.ifreeplaysdk.interfaces.HttpCallBackListener;
 import com.ifreeplay.ifreeplaysdk.interfaces.LogInStateListener;
 import com.ifreeplay.ifreeplaysdk.login.LoginManager;
 import com.ifreeplay.ifreeplaysdk.model.CreateOrder;
-import com.ifreeplay.ifreeplaysdk.model.Credential;
 import com.ifreeplay.ifreeplaysdk.model.ViewPlayer;
 import com.ifreeplay.ifreeplaysdk.utils.payutils.AndroidUtils;
 import com.ifreeplay.ifreeplaysdk.utils.payutils.HttpUtils;
@@ -21,9 +20,7 @@ import com.ifreeplay.ifreeplaysdk.utils.payutils.UrlConstants;
 
 public class MainActivity extends AppCompatActivity{
 
-    private TextView mAuthLogin;
     private TextView mConfirmOrder;
-    private TextView mTestOrder;
     private TextView mWechatLogin;
     private TextView mLineLogin;
     private TextView mFaceBookLogin;
@@ -42,7 +39,6 @@ public class MainActivity extends AppCompatActivity{
      * 初始化布局
      */
     private void initView() {
-        mAuthLogin = (TextView) findViewById(R.id.tv_product_list);
         mConfirmOrder = (TextView) findViewById(R.id.tv_confirmOrder);
         mWechatLogin = (TextView) findViewById(R.id.tv_wechatlogin);
         mLineLogin = (TextView) findViewById(R.id.tv_linelogin);
@@ -54,6 +50,7 @@ public class MainActivity extends AppCompatActivity{
      * 初始化数据
      */
     private void initData() {
+        //微信登录
         mWechatLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,50 +70,44 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        mAuthLogin.setOnClickListener(new View.OnClickListener() {
+        //line登录
+        mLineLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Credential credential = new Credential();
-                credential.setGameId(2);
-                credential.setName("Gw");
-                credential.setType(Credential.Type.WECHAT);
-                credential.setWechatId("121212121");
-                HttpUtils.postString(UrlConstants.AUTHLOGIN, new Gson().toJson(credential), new HttpCallBackListener() {
+                loginManager.initLineLogin();
+                loginManager.setLineLoginParams(MainActivity.this, "1549136935", new LogInStateListener() {
                     @Override
-                    public void onFinish(String response) {
-                        String s=response;
-                        AndroidUtils.shortToast(MainActivity.this,"登录成功！");
+                    public void OnLoginSuccess(ViewPlayer viewPlayer, String s) {
+                        AndroidUtils.shortToast(MainActivity.this,viewPlayer.getData().getName()+"---"+viewPlayer.getData().getHeadPortraitUrl());
                     }
 
                     @Override
-                    public void onError(Exception e) {
-                        AndroidUtils.shortToast(MainActivity.this,e.toString());
+                    public void OnLoginError(String s) {
+                        AndroidUtils.shortToast(MainActivity.this,"failed");
                     }
                 });
             }
         });
+
+        //facebook登录
+        mFaceBookLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loginManager.initFaceBookLogin();
+                loginManager.setFaceBookLoginParams(MainActivity.this, null, new LogInStateListener() {
+                    @Override
+                    public void OnLoginSuccess(ViewPlayer viewPlayer, String s) {
+
+                    }
+
+                    @Override
+                    public void OnLoginError(String s) {
+
+                    }
+                });
+            }
+        });
+
 
         //确认订单
         mConfirmOrder.setOnClickListener(new View.OnClickListener() {
@@ -153,6 +144,7 @@ public class MainActivity extends AppCompatActivity{
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        loginManager.onActivityResult(requestCode,resultCode,data);
     }
 
     @Override
