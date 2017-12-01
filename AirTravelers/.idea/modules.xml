@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AirTravelers.iml" filepath="$PROJECT_DIR$/AirTravelers.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jitpacktest/jitpacktest.iml" filepath="$PROJECT_DIR$/jitpacktest/jitpacktest.iml" />
     </modules>
   </component>
 </project>

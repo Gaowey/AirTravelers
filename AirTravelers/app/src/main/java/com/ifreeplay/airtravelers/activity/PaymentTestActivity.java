@@ -11,7 +11,7 @@ import com.ifreeplay.ifreeplaysdk.interfaces.WechatPayCallBackListener;
 import com.ifreeplay.ifreeplaysdk.payment.GooglePay;
 import com.ifreeplay.ifreeplaysdk.payment.PaypalPay;
 import com.ifreeplay.ifreeplaysdk.payment.WechatPay;
-import com.ifreeplay.ifreeplaysdk.utils.payutils.AndroidUtils;
+import com.ifreeplay.ifreeplaysdk.utils.payUtils.AndroidUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;

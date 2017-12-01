@@ -56,8 +56,92 @@
         android:textSize="16sp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:background="#e0eee8"
         />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="80dp"
+
+    >
+    <TextView
+        android:id="@+id/tv_fb_share_url"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="fb-share-url"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="#e0eee8"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        />
+    <View
+        android:layout_width="0dp"
+        android:layout_height="10dp"
+        android:layout_weight="1"
+        />
+
+    <TextView
+        android:id="@+id/tv_fb_share_pic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="fb-share-pic"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="#e0eee8"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        />
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+
+        >
+        <TextView
+            android:id="@+id/tv_line_share_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="line-share-text"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:background="#e0eee8"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="10dp"
+            android:layout_weight="1"
+            />
+
+        <TextView
+            android:id="@+id/tv_line_share_pic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="line-share-pic"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:background="#e0eee8"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            />
+    </LinearLayout>
+
+
+
+
 
 </LinearLayout>

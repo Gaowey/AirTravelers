@@ -15,8 +15,9 @@ buildscript {
 allprojects {
     //apply plugin: "com.jfrog.artifactory"
     repositories {
+        maven { url 'https://jitpack.io' }
         jcenter()
-
+        google()
     }
 }
 

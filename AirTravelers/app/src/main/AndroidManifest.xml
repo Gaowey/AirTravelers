@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ifreeplay.airtravelers">
-
+    grantUriPermission
     <!-- 微信支付 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -55,6 +55,11 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
+
+        <!-- facebook 分享 -->
+        <provider android:authorities="com.facebook.app.FacebookContentProvider1939528269631692"
+            android:name="com.facebook.FacebookContentProvider"
+            android:exported="true"/>
 
     </application>
 

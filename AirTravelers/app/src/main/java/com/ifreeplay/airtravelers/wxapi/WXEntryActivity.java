@@ -6,8 +6,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.ifreeplay.airtravelers.activity.MainActivity;
-import com.ifreeplay.ifreeplaysdk.utils.loginutils.SPUtil;
-import com.ifreeplay.ifreeplaysdk.utils.payutils.AndroidUtils;
+import com.ifreeplay.ifreeplaysdk.utils.loginUtils.SPUtil;
+import com.ifreeplay.ifreeplaysdk.utils.payUtils.AndroidUtils;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.modelmsg.SendAuth;
