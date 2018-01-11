@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import com.ifreeplay.airtravelers.activity.MainActivity;
 import com.ifreeplay.ifreeplaysdk.utils.loginUtils.SPUtil;
 import com.ifreeplay.ifreeplaysdk.utils.payUtils.AndroidUtils;
+import com.tencent.mm.opensdk.constants.ConstantsAPI;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.modelmsg.SendAuth;
@@ -25,35 +26,62 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
     }
 
     @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        api.handleIntent(intent, this);
+    }
+
+    @Override
     public void onReq(BaseReq baseReq) {
 
     }
 
     @Override
     public void onResp(BaseResp baseResp) {
-        String s="cdscds";
-        switch (baseResp.errCode){
-            case BaseResp.ErrCode.ERR_AUTH_DENIED:
-                //用户拒绝授权
-                AndroidUtils.shortToast(WXEntryActivity.this, "拒绝授权微信登录");
-                finish();
-                break;
-            case BaseResp.ErrCode.ERR_USER_CANCEL:
-                //用户取消
-                AndroidUtils.shortToast(WXEntryActivity.this, "取消授权微信登录");
-                finish();
-                break;
-            case BaseResp.ErrCode.ERR_OK:
-                //用户换取access_token的code，仅在ErrCode为0时有效
-                String code = ((SendAuth.Resp) baseResp).code;
-                SPUtil.setString(WXEntryActivity.this,"WxCode",code);
-                Intent intent = new  Intent();
-                intent.setAction("authlogin");
-                sendBroadcast(intent);
-                finish();
-                //发送广播传递code
-                break;
+        if (baseResp.getType() == ConstantsAPI.COMMAND_SENDAUTH){
+            switch (baseResp.errCode){
+                case BaseResp.ErrCode.ERR_AUTH_DENIED:
+                    //用户拒绝授权
+                    AndroidUtils.shortToast(WXEntryActivity.this, "拒绝授权微信登录");
+                    finish();
+                    break;
+                case BaseResp.ErrCode.ERR_USER_CANCEL:
+                    //用户取消
+                    AndroidUtils.shortToast(WXEntryActivity.this, "取消授权微信登录");
+                    finish();
+                    break;
+                case BaseResp.ErrCode.ERR_OK:
+                    //用户换取access_token的code，仅在ErrCode为0时有效
+                    String code = ((SendAuth.Resp) baseResp).code;
+                    SPUtil.setString(WXEntryActivity.this,"WxCode",code);
+                    Intent intent = new  Intent();
+                    intent.setAction("authlogin");
+                    sendBroadcast(intent);
+                    finish();
+                    //发送广播传递code
+                    break;
+            }
+        }else if (baseResp.getType() == ConstantsAPI.COMMAND_SENDMESSAGE_TO_WX){
+            switch (baseResp.errCode){
+                case BaseResp.ErrCode.ERR_SENT_FAILED:
+                    //用户拒绝授权
+                    AndroidUtils.shortToast(WXEntryActivity.this, "分享失败");
+                    finish();
+                    break;
+                case BaseResp.ErrCode.ERR_USER_CANCEL:
+                    //用户取消
+                    AndroidUtils.shortToast(WXEntryActivity.this, "取消分享");
+                    finish();
+                    break;
+                case BaseResp.ErrCode.ERR_OK:
+                    AndroidUtils.shortToast(WXEntryActivity.this, "分享成功");
+                    finish();
+                    break;
+            }
         }
+
+
 
     }
 }

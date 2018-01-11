@@ -1,1 +1,1 @@
-include ':app', ':jitpacktest'
+include ':app'

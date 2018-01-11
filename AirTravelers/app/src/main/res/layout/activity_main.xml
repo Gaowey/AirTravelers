@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -14,134 +13,222 @@
         android:id="@+id/tv_wechatlogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="微信登录"
-        android:gravity="center"
-        android:textSize="16sp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
         android:layout_marginTop="15dp"
         android:background="#00bc12"
-        />
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="微信登录"
+        android:textSize="16sp" />
+
     <TextView
         android:id="@+id/tv_linelogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="line登录"
-        android:gravity="center"
-        android:textSize="16sp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
         android:layout_marginTop="15dp"
         android:background="#ff7500"
-    />
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="line登录"
+        android:textSize="16sp" />
+
     <TextView
         android:id="@+id/tv_facebooklogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="facebook登录"
-        android:gravity="center"
-        android:textSize="16sp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
         android:layout_marginTop="15dp"
         android:background="#4b5cc4"
-        />
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="facebook登录"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/tv_confirmOrder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="确认订单"
-        android:gravity="center"
-        android:textSize="16sp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
         android:layout_marginTop="50dp"
         android:background="#e0eee8"
-        />
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_marginTop="80dp"
-
-    >
-    <TextView
-        android:id="@+id/tv_fb_share_url"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="fb-share-url"
         android:gravity="center"
-        android:textSize="16sp"
-        android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:background="#e0eee8"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        />
-    <View
-        android:layout_width="0dp"
-        android:layout_height="10dp"
-        android:layout_weight="1"
-        />
+        android:paddingTop="10dp"
+        android:text="确认订单"
+        android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/tv_fb_share_pic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="fb-share-pic"
-        android:gravity="center"
-        android:textSize="16sp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:background="#e0eee8"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        />
-</LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
 
-        >
+        <TextView
+            android:id="@+id/tv_fb_share_url"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="#e0eee8"
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:text="fb网页"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_fb_share_pic"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_marginLeft="20dp"
+            android:layout_height="wrap_content"
+            android:background="#e0eee8"
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:text="fb图片"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
         <TextView
             android:id="@+id/tv_line_share_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="line-share-text"
-            android:gravity="center"
-            android:textSize="16sp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
             android:background="#e0eee8"
+            android:gravity="center"
+            android:paddingBottom="10dp"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            />
+            android:paddingTop="10dp"
+            android:text="line-share-text"
+            android:textSize="16sp" />
+
         <View
             android:layout_width="0dp"
             android:layout_height="10dp"
-            android:layout_weight="1"
-            />
+            android:layout_weight="1" />
 
         <TextView
             android:id="@+id/tv_line_share_pic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="line-share-pic"
-            android:gravity="center"
-            android:textSize="16sp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
             android:background="#e0eee8"
+            android:gravity="center"
+            android:paddingBottom="10dp"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            />
+            android:paddingTop="10dp"
+            android:text="line-share-pic"
+            android:textSize="16sp" />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
 
+        <TextView
+            android:id="@+id/tv_wechat_share_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#e0eee8"
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:text="wx文本"
+            android:textSize="16sp" />
 
+        <TextView
+            android:id="@+id/tv_wechat_share_pic"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="#e0eee8"
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:text="wx图片"
+            android:textSize="16sp" />
 
+        <TextView
+            android:id="@+id/tv_wechat_share_web"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="#e0eee8"
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:text="wx网页"
+            android:textSize="16sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
 
+        <TextView
+            android:id="@+id/tv_whatsapp_share_text"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="#e0eee8"
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:text="wp文本"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_whatsapp_share_pic"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="#e0eee8"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:text="wp图片"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/tv_whatsapp_share_net_pic"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="#e0eee8"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:text="wp_net图片"
+            android:textSize="16sp" />
+    </LinearLayout>
 </LinearLayout>
